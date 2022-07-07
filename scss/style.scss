@@ -17,8 +17,7 @@ img{
     width:100%;
 }
 .showcase{
-    background-color:$primary-color;
-    color:white;
+   @include set-background($primary-color);
     height:80vh;
     nav{
         display:flex;
@@ -35,10 +34,13 @@ img{
         a:hover{
            color:$secondary-color; 
         }
+        a{
+            color:set-text-color($primary-color);
+        }
     }
-    a{
-        color:white;
-    }
+    // a{
+    //         color:set-text-color($primary-color);
+    // }
     &-content{
         height:100%;
         display:flex;

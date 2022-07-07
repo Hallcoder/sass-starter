@@ -1,5 +1,36 @@
 $light-color:#f4f4f4;
 $borderCustomized:1px solid yellow;
-$primary-color:hsl(217, 100%, 53%);
+$primary-color:blue;
+// $primary-color:#e0ffff;
 $secondary-color:#ff8760;
 $font-family:sans-serif;
+
+//setting text color based on background 
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+         @return #333;
+    } @else{
+        @return white;
+    }
+}
+
+//set background & text color 
+@mixin set-background($color){
+    background-color:$color;
+    color:set-text-color($color);
+}
+
+// margin & padding classes for
+$spaceamount:(1,2,3,4,5);
+
+@each $space in $spaceamount {
+    .m-#{$space}{
+        margin: #{$space}rem;
+    }
+    .my-#{$space}{
+        margin: #{$space}rem 0;
+    }
+    .mx-#{$space}{
+        margin:0 #{$space}rem;
+    }
+}
